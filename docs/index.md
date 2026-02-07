@@ -73,7 +73,7 @@ hide_table_of_contents: true
 
 <footer className="home-footer">
   <blockquote>
-    "学而不思则罔，思而不学则殆。" —— 部署测试成功！
+    "学而不思则罔，思而不学则殆。"
   </blockquote>
 </footer>
 
