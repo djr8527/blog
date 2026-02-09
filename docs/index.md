@@ -18,7 +18,7 @@ hide_table_of_contents: true
 </header>
 
 <div className="card-grid">
-  <a className="card" href="/java/">
+  <a className="card card--primary" href="/java/">
     <div className="card-number">01</div>
     <div className="card-content">
       <h3>Java 基础</h3>
@@ -31,7 +31,7 @@ hide_table_of_contents: true
     </div>
   </a>
 
-  <a className="card" href="/middleware/">
+  <a className="card card--secondary" href="/middleware/">
     <div className="card-number">02</div>
     <div className="card-content">
       <h3>框架与中间件</h3>
@@ -44,7 +44,7 @@ hide_table_of_contents: true
     </div>
   </a>
 
-  <a className="card" href="/project/">
+  <a className="card card--tertiary" href="/project/">
     <div className="card-number">03</div>
     <div className="card-content">
       <h3>项目实战</h3>
@@ -52,12 +52,12 @@ hide_table_of_contents: true
     </div>
     <div className="card-arrow">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        <path d="M7 17L17 7M17 7V17"/>
       </svg>
     </div>
   </a>
 
-  <a className="card" href="/interview/">
+  <a className="card card--accent" href="/interview/">
     <div className="card-number">04</div>
     <div className="card-content">
       <h3>面试梳理</h3>
@@ -162,7 +162,7 @@ hide_table_of_contents: true
   border: 1px solid var(--warm-200, #e8e4de);
   border-radius: 12px;
   text-decoration: none;
-  transition: all 250ms ease;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms ease, border-color 200ms ease, background 200ms ease;
   position: relative;
   overflow: hidden;
 }
@@ -179,11 +179,23 @@ hide_table_of_contents: true
   transition: opacity 250ms ease;
 }
 
+/* 四个入口的视觉层次：不同 accent 与权重 */
+.card--primary .card-number { color: var(--accent); }
+.card--primary::before { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+.card--secondary .card-number { color: var(--warm-600, #5c564d); }
+.card--secondary::before { background: linear-gradient(90deg, var(--warm-600), var(--warm-400)); }
+[data-theme='dark'] .card--secondary .card-number { color: var(--warm-400); }
+.card--tertiary .card-number { color: var(--warm-500, #7c756a); }
+.card--tertiary::before { background: linear-gradient(90deg, var(--warm-500), var(--warm-300)); }
+[data-theme='dark'] .card--tertiary .card-number { color: var(--warm-500); }
+.card--accent .card-number { color: var(--accent-dark); }
+.card--accent::before { background: linear-gradient(90deg, var(--accent-dark), var(--accent)); }
+
 .card:hover {
   border-color: var(--accent);
   background: #fff;
   box-shadow: 0 8px 30px rgba(26, 24, 21, 0.08);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .card:hover::before {
